@@ -1,0 +1,102 @@
+﻿/*     * Author: weishuheng
+       * Time: 2013-12-02
+       * common.css 为全局样式表，所包含的样式都为全局样式
+       * common.css 包含a标签、通用width、header、footer
+       *common.css 为网站所有页面都必须引用的css */
+/** 通用设置 **/
+body {  font-size: 12px;  _background-attachment: fixed;  }
+/* *消除A标签选中时的虚线框* */
+a { outline-style: none; /* *FF* */  bblr: expression(this.onFocus=this.blur());  /*IE* */  }
+/** nav **/
+.nav{ height: 56px; border-bottom-width:2px; border-bottom-style: solid; min-width: 1000px; }
+.nav.adminNav{min-width: 1260px; }
+.navLogo{ width: 87px; height: 40px; background-repeat: no-repeat; margin: 8px 40px 0px 20px;}
+.navList li{ text-align: center; margin: 0 18px; }
+.navList a{ display: inline-block; height: 55px; text-decoration: none; line-height: 55px; padding-top:1px; }
+.navList .cur a{ height: 54px; border-bottom-width:2px; border-bottom-style: solid; }
+.navright{ line-height: 56px; margin-right: 18px;}
+.navright a{margin-left: 20px; text-decoration: none; }
+
+/** nav - 个人资料 **/
+.navAccountWrap{ width: 0; }
+.navAccount{ position: absolute; z-index: 400; right: 0; top:15px;}
+.navAccount .icon_triangle{ position: absolute; top: -9px; right: 10px;}
+.navAccount{ width: 355px; border-radius: 2px;  border-width:1px;border-style: solid; }
+.navAccountList{ width:200px; }
+.navAccountList li{ height: 24px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.navAccountBot{ height: 50px; border-top-width:1px; border-top-style: solid; }
+
+/** sidebar **/
+.sidebar {  position: absolute;  left: 0; width:220px; top: 0px; overflow-y: auto; }
+.sidebarBoxName{ line-height:27px; cursor:pointer; padding-left:20px; }
+.sidebar .icon_nav{ margin-right:3px; }
+.sidebarMidBox,.sidebarBox ul{ display: none; }
+.sidebarBox li{ line-height:24px; }
+.sidebarBox li a:hover{ font-weight:bold; }
+.sidebarBox li a{ display:block; padding-left:54px; border-left-width:2px; border-left-style:solid; }
+
+.sidebarMidName{line-height:27px; cursor:pointer; padding-left:37px;}
+
+
+
+/** 结构 **/
+.main{ min-width: 1000px; padding: 20px; }
+.content{ position: relative; }
+.container{ border-left-width: 1px; border-left-style: solid;margin-left: 220px; }
+.footer {  padding: 0px 20px 20px; height: 20px;  line-height: 20px;  }
+/* 首要数据展示 */
+.importanceData{ width:100%; display:table; table-layout:fixed; }
+.importanceDataBox{ width:50%; display: table-cell; }
+.importanceData .first{ border-right-width:1px; border-right-style:solid; }
+.importanceData li{ line-height:28px; }
+.importanceDataNumber{ font-size:28px; }
+
+/*-- input --*/
+input[type="text"], input[type="password"], textarea, .selectBox_show { font-size: 14px; line-height: 20px; border-width:1px;border-style: solid;   border-radius:3px;  }
+input[type="text"], input[type="password"], .selectBox_show {  height: 20px;  }
+input[type="text"], input[type="password"], textarea {  display: inline-block;  padding: 5px 10px;  }
+input[type="text"]:focus, input[type="password"]:focus {  outline: none; }
+textarea { resize: none; }
+
+/* 表单提示 */
+.tipBox, .errorBox {  display: inline-block;  line-height: 32px;  position: relative;  vertical-align: top;  }
+.tipBox .icon_tip, .errorBox .icon_error {  position: absolute;  left: 0;  top: 8px;  }
+.tipBox span, .errorBox span {  padding-left: 20px;  }
+.required { vertical-align: middle;  }
+
+/* 自定义日期范围 */
+.selectBox.selectBox_opr .selectBox_show{ padding: 4px 20px 4px 10px; }
+.selectBox.selectBox_opr .selectBox_list{ top: 30px; }
+.btn_d.exportBtn{padding: 0 25px;}
+.choseTime {  display: inline-block; height: 30px;  cursor: pointer;  }
+.choseTime input {  width: 290px; font-weight:bold;padding: 4px 10px;  font-size: 12px;cursor: pointer;  }
+.choseTime .icon_arrowDown {  position: absolute;  right: 10px;  top: 14px;  }
+
+/* table */
+.table {text-align: center; }
+.table dl {border-width:1px;border-style:solid; }
+.table dt {font-weight: bold;position: relative;cursor: pointer; }
+.table dt .icon_sort{ display:none; }
+.table dd{border-bottom-width:1px;border-bottom-style:solid;  }
+.table .item {float: left;line-height: 24px;height: 24px;padding: 5px 0;text-align: left;  text-indent: 1em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap; }
+.tableTotal {border-width:1px;border-style:solid;border-top: none;   }
+.tableTotal .item {  float: left;padding: 0px 0;text-align: left;text-indent: 1em;box-shadow:none;height:40px;line-height:40px;}
+.tableTotal .item span {display: block;  line-height: 18px;padding-top: 2px;}
+.tableTotal .item em {display: block;  font-style: normal;line-height: 18px;}
+
+/** 遮罩层和pop公用样式 **/
+.pop_cover{ opacity:0.3; filter:alpha(opacity=30); z-index:501; left:0; top:0; width:100%; position:fixed; height:5000px; }
+.pop_wrap{ position:fixed; left:0; top: 0; right: 0; bottom: 0; margin: auto; z-index:502; border-width:1px;border-style:solid; border-radius: 3px; }
+.pop_titleBox{ height: 44px; border-bottom-width:1px;border-bottom-style:solid; }
+.pop_title{ text-indent:20px; font:bold 16px/44px "simsun"; }
+.pop_titleBox .icon_close{ margin:12px 12px 0 0; }
+/** alert弹出框样式 **/
+.pop_alertCon,.pop_confirmCon{ line-height:20px}
+/** 超小号通用弹出框 **/
+.ssPop{ width: 320px; }
+/** 小号通用弹出框 **/
+.sPop{ width: 460px; }
+/** 中号通用弹出框 **/
+.cPop{ width: 600px; }
+/** 大号通用弹出框 **/
+.bPop{ width: 740px; }

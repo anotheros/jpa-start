@@ -1,0 +1,47 @@
+/*
+	* Author: weishuheng
+	* Time: 2013-12-02
+	* common.css 为网站所有按钮的css
+*/
+
+/* btn */
+.btn{ cursor:pointer; height:38px; text-align:center; font:14px/38px "宋体"; }
+.btn span,.btn font{ background-image:url("/static/img/btn.png"); background-repeat:no-repeat; text-decoration:none; display:inline-block; *display:inline; *zoom:1; }
+.btn font{ margin-right:20px; padding-left:20px; font-size:14px; }
+.btn:hover{ text-decoration:none; }
+.btn i{ font-style:normal; padding:0 16px; }
+/* 蓝色按钮 - 登录 */
+.btn_a span{ background-position:right -40px; }
+.btn_a font{ background-position:0 0; }
+.btn_a:hover span{ background-position:right -120px; }
+.btn_a:hover font{ background-position:0 -80px; }
+/* 黄色按钮 - 添加、保存 */
+.btn_b{display:inline-block;padding:0px 15px;line-height:28px;font-weight: bold;border-radius: 3px;font-size: 12px;border-width: 1px;border-style:solid;}
+.btn_b:hover{text-decoration:none;border-width:1px;border-style:solid;}
+.btn_b:active{ border-width: 1px;border-style:solid;}
+.icon_add{padding-right: 5px;}
+.icon_blackAdd{padding-right: 5px;}
+/* 灰色按钮 - 取消、重置 */
+.btn_c{display:inline-block;border-width: 1px;border-style:solid;padding:0px 16px;line-height:28px;font-weight: bold;border-radius: 3px;font-size: 12px;}
+.btn_c:active{text-decoration:none;border-width: 1px;border-style:solid;}
+/* 深灰按钮 - 导出 */
+.btn_d{display:inline-block;border-width: 1px;border-style:solid;padding:0px 16px;line-height:28px;font-weight: bold;border-radius: 3px;font-size: 12px;}
+.btn_d:hover{text-decoration:none;border-width: 1px;border-style:solid;}
+/* 深灰按钮 - 向上*/
+.btn_e{border-style:solid; border-width: 1px;cursor: pointer;display:inline-block; line-height: 13px; width:60px;height:18px;border-bottom: none;}
+.btn_e:hover{ text-decoration:none; }
+/* 深灰按钮 - 正常*/
+.btn_f{border-style:solid; border-width: 1px;cursor: pointer;display:inline-block; line-height: 13px; height:18px;border-bottom: none;border-radius: 3px;}
+.btn_f:hover{text-decoration:none;border-width: 1px;border-style:solid;}
+
+
+
+
+
+
+
+
+
+
+
+

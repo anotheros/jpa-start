@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+       http://www.springframework.org/schema/jee  
+       http://www.springframework.org/schema/jee/spring-jee.xsd
+       http://www.springframework.org/schema/data/repository
+       http://www.springframework.org/schema/data/repository/spring-repository-1.6.xsd">
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<context:property-placeholder location="classpath:jdbc-app.properties,classpath:config.properties"
+		ignore-unresolvable="true" />
+
+	<context:annotation-config />
+	<context:component-scan base-package="cn.zplay">
+		<context:exclude-filter type="regex"
+			expression="cn.zplay.controller" />
+	</context:component-scan>
+	<bean id="mybeanFacrotyUtil" class="com.laozapp.util.BeanFactoryUtil"></bean>
+
+
+	<!-- entityManagerFactory 工厂配置 -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 扫描实体路径 -->
+		<property name="packagesToScan" value="cn.zplay.po" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="false" />
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<!--设置外连接抓取树的最大深度 -->
+				<prop key="hibernate.max_fetch_depth">3</prop>
+				<prop key="hibernate.jdbc.fetch_size">18</prop>
+				<prop key="hibernate.jdbc.batch_size">10</prop>
+				<!-- 自动建表类型 validate|create|create-drop|update -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- 是否显示SQL -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 显示SQL是否格式化 -->
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- 关闭二级缓存 -->
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+				<!-- 关闭实体字段映射校验 -->
+				<prop key="javax.persistence.validation.mode">none</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+
+	<jpa:repositories base-package="cn.zplay.dao"
+		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
+		transaction-manager-ref="transactionManager" />
+
+	<!-- 使用注解配置事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+	<!-- 配置数据源 -->
+
+
+	<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="5" />
+		<!-- 连接池最大使用连接数量 -->
+		<property name="maxActive" value="10" />
+
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="1" />
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="100000" />
+
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="33" />
+		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="timeBetweenEvictionRunsMillis" value="9000" />
+		<property name="minEvictableIdleTimeMillis" value="30000" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="1000" />
+		<!-- 关闭abanded连接时输出错误日志 -->
+		<property name="logAbandoned" value="true" />
+		<!-- 监控数据库 -->
+		<property name="filters" value="stat" />
+	</bean>
+	<!-- 配置druid监控spring jdbc -->
+	<bean id="druid-stat-interceptor"
+		class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">
+	</bean>
+	<bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut"
+		scope="prototype">
+		<property name="patterns">
+			<list>
+				<value>cn.zplay.service.*</value>
+			</list>
+		</property>
+	</bean>
+	<aop:config>
+		<aop:advisor advice-ref="druid-stat-interceptor"
+			pointcut-ref="druid-stat-pointcut" />
+	</aop:config>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.FormHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<!-- <constructor-arg ref="utf8"> </constructor-arg> -->
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+				<bean
+					class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="casSingleSignOutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter">
+		<property name="casServerUrlPrefix" value="${casServerUrlPrefix}"/>
+	</bean>
+	<bean name="casAuthenticationFilter" class="org.jasig.cas.client.authentication.AuthenticationFilter">
+		<property name="serverName" value="${casClientServerName}"/>
+		<property name="casServerLoginUrl" value="${casServerLoginUrl}"/>
+	</bean>
+	<bean name="casTicketValidationFilter" class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter">
+		<property name="serverName" value="${casClientServerName}"/>
+		<property name="ticketValidator">
+			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+				<constructor-arg index="0" value="${casServerUrlPrefix}"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 发送邮件 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${email_host}" />
+		<property name="protocol" value="${email_protocol}" />
+
+		<property name="port" value="${email_port}" />
+		<property name="username" value="${email_username}" />
+		<property name="password" value="${email_password}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">${email_protocol}</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">${mail_debug}</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

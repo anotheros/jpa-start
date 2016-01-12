@@ -1,0 +1,57 @@
+﻿/*
+	* Author: weishuheng
+	* Time: 2013-12-02
+	* icon.css 为模块样式表，所包含的样式都只为模块服务，页面只有在需要引用的时候才引入
+	* icon.css 主要包含了网站的所有图标的样式的公共部分
+*/
+.icon{ background-image:url("/static/img/icon.png"); background-repeat:no-repeat; display:inline-block; }
+.icon_nav{width:16px; height:12px; background-position: 0 -80px;}
+.on .icon_nav{ background-position: 0 -120px;}
+.icon_user{width: 13px; height: 14px; background-position: 0 0px; }
+.icon_pass{width: 12px; height: 15px; background-position: 0 -40px; }
+.icon_username{ width:16px; height:16px; background-position:-120px 0;}
+.icon_password{ width:14px; height:16px; background-position:-120px -40px}
+.icon_validate{ width:12px; height:16px; background-position:-120px -80px}
+.icon_refresh{ width:13px; height:15px; background-position:-120px -120px}
+.icon_dev{width:58px;height:58px;background-position: -40px 0; }
+.icon_ad{width:58px;height:58px;background-position: -40px -80px; }
+.icon_count{width:58px;height:58px;background-position: -40px -160px; }
+.icon_advertisers{width:58px;height:58px;background-position: -200px 0;}
+.icon_juhe{width:58px;height:58px;background-position: -200px -80px;}
+.icon_dsp{width:58px;height:58px;background-position: -200px -160px;}
+.icon_pmp{width:58px;height:58px;background-position: -200px -240px;}
+.icon_manage{width:58px;height:58px;background-position: -40px -240px; }
+.icon_arrowDown{ width: 7px; height: 4px; background-position: 0 -160px; }
+.dis .icon_arrowDown {  background-position: 0 -200px; }
+.icon_sort{ width:8px;height:7px;background-position: 0 -240px; }
+.icon_add{width:9px;height:9px;background-position: 0 -280px;}
+.icon_help{width:13px;height:13px;background-position: 0 -360px;}
+.icon_search{width:15px;height:15px;background-position: 0 -320px;}
+/*.icon_addAd{width:9px;height:9px;background-position: 0 -440px; }*/
+.icon_right{width: 13px;height: 13px; background-position:-0px -440px; }
+.icon_viewDown{width:11px;height:11px;background-position: 0 -480px;}
+.icon_viewUp{width:11px;height:11px;background-position: 0 -520px;}
+.icon_prevPage{ width:9px; height: 14px; background-position: 0 -560px;}
+.dis .icon_prevPage{ background-position:-40px -560px;}
+.icon_nextPage{ width:9px; height: 14px; background-position: 0 -600px;}
+.dis .icon_nextPage{ background-position:-40px -600px;}
+.icon_error{ width: 16px; height: 16px; background-position: -40px -320px; }
+.icon_tip{ width: 16px; height: 16px; background-position: -40px -400px; }
+.icon_arrowLeft{ width: 14px; height: 14px; background-position: 0 -560px;}
+.icon_arrowRight{ width: 14px; height: 14px; background-position: 0 -600px;}
+.icon_grayarrowLeft{ width:4px; height:7px; background-position:0 -640px;}
+.icon_blackarrowLeft{ width:4px; height:10px; background-position:0 -680px;}
+.icon_blackarrowDown{ width:8px; height: 6px; background-position:0 -720px;}
+.icon_triangle{ width:20px; height:10px; background-position:0 -760px;}
+.icon_blackarrowTop{ width:8px; height:4px; background-position:0 -800px;}
+.icon_greenDot{ width:7px; height:8px; background-position:-40px -480px;}
+.icon_modify{ width:16px; height:17px; background-position:-40px -520px;}
+.icon_close{ width:21px; height:21px; background-position:-40px -440px; }
+.icon_selected{ width: 10px; height: 10px; background-position:-40px -640px; }
+.icon_blackAdd{width:12px;height:12px;background-position: -40px -680px;}
+.icon_arrowDownWhite{ width: 13px; height: 7px; background-position: -40px -760px; }
+.icon_whiteArrowDown{ width:8px; height:5px; background-position: -40px -720px; }
+.icon_suc{ width:26px; height:26px; background-position:-160px 0}
+.icon_stepBgYellow{ width:20px; height:20px; background-position:-160px -40px; }
+.icon_stepBgGray{ width:20px; height:20px; background-position:-160px -80px; }
+.icon_stepSuc{ width:20px; height:20px; background-position:-160px -120px; }

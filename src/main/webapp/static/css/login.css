@@ -1,0 +1,26 @@
+﻿@charset "utf-8";
+/*     * Author: sunyue
+       * Time: 2015-11-13
+       * login.css 为登陆样式表
+       */
+
+
+/*登陆*/
+.wrap_login{padding-top: 10px; }
+.loginLogo{ width: 164px; height: 45px; margin-left: 20px;}
+.login_wrap{ width: 283px; height: 401px; position: relative; margin: 0 auto; padding-top: 100px; padding-bottom: 180px; }
+.icon_user{	position: absolute; right: 6px; top: 9px; z-index: 2;}
+.icon_pass{ position: absolute; right: 6px; top: 9px; z-index: 2}
+.yumi_logo{ width: 115px; height: 145px; position: absolute; top: 42px; left: 89px;}
+.yumi_logo span{ display: inline-block; padding-top: 145px; padding-left: 6px; font-size: 14px; font-family: "黑体";  text-shadow:2px 1px 2px #e1e1e1;}
+.loginData{ width: 283px; height: 270px; border-radius: 3px; padding-top: 130px;}
+.group{ width: 220px;  margin: 10px 0px 20px 30px; position: relative; }
+.groupOption{ width: 220px; margin: 0px 0px 10px 30px;}
+.groupOption span{ margin-left: 10px;}
+.groupOption .code{ display: inline-block; width: 119px; padding:10px 8px; border:1px solid #cecece; border-radius: 3px; background: #fff; height: 12px;}
+.groupOption img{ width: 75px; height: 34px; border-radius: 3px;}
+.group input{ width: 204px; height: 12px; padding:10px 8px; border:1px solid #cecece; border-radius: 2px; background: #fff;}
+.group .btn_a i{padding: 0 76px;}
+.wrap_login .tipBox{position: absolute; top: 27px; left: 0px;}
+.wrap_login .errorBox{ position: absolute; top: 27px; left: 0px;}
+.wrap_login .footer{ margin-top: 48px; padding: 10px 20px; }
