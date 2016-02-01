@@ -25,5 +25,5 @@ $ git push sinacloud master:1
 
 ## 相关文档
 
-- [Java应用部署指南](http://www.sinacloud.com/doc/sc2/java-getting-started.html)
+- [Java应用部署指南](http://www.sinacloud.com/doc/sae/docker/java-getting-started.html)
 
