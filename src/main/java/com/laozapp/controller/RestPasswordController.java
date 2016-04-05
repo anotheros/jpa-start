@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ivan.zhang.CaptchaServiceSingleton;
 
 import com.laozapp.po.Result;
 import com.laozapp.po.UserEntity;
@@ -33,8 +32,8 @@ public class RestPasswordController {
 		Result result = new Result();
 		result.setResult(true);
 		HttpSession session = request.getSession();
-		String captchaId = session.getId();
-		boolean isResponseCorrect = CaptchaServiceSingleton.getInstance().validateResponseForID(captchaId, captcha);
+		boolean isResponseCorrect =	true;
+
 		if (!isResponseCorrect) {
 			
 			result.setResult(false);

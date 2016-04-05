@@ -34,19 +34,12 @@
 		<java.mail-version>1.5.2</java.mail-version>
 	</properties>
 	<dependencies>
-
-    <dependency>
-      <groupId>com.octo.captcha</groupId>
-      <artifactId>jcaptcha</artifactId>
-      <version>1.0</version>
-    </dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 			<type>jar</type>
 		</dependency>
-	
     <dependency>
       <groupId>taglibs</groupId>
       <artifactId>standard</artifactId>
