@@ -1,4 +1,4 @@
 language: java
 notifications:
   slack: laozapp:wHTd1GexWHymOwtfi5cJTSSS
-    on_success: always
+  on_success: always
