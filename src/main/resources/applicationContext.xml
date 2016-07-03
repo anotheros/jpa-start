@@ -24,9 +24,9 @@
 		ignore-unresolvable="true" />
 
 	<context:annotation-config />
-	<context:component-scan base-package="cn.zplay">
+	<context:component-scan base-package="com.laozapp">
 		<context:exclude-filter type="regex"
-			expression="cn.zplay.controller" />
+			expression="cn.laozapp.controller" />
 	</context:component-scan>
 	<bean id="mybeanFacrotyUtil" class="com.laozapp.util.BeanFactoryUtil"></bean>
 
@@ -36,7 +36,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 扫描实体路径 -->
-		<property name="packagesToScan" value="cn.zplay.po" />
+		<property name="packagesToScan" value="com.laozapp.po" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
@@ -67,7 +67,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 	</bean>
 
-	<jpa:repositories base-package="cn.zplay.dao"
+	<jpa:repositories base-package="com.laozapp.dao"
 		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" />
 
@@ -143,21 +143,7 @@
 		</property>
 	</bean>
 
-	<bean name="casSingleSignOutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter">
-		<property name="casServerUrlPrefix" value="${casServerUrlPrefix}"/>
-	</bean>
-	<bean name="casAuthenticationFilter" class="org.jasig.cas.client.authentication.AuthenticationFilter">
-		<property name="serverName" value="${casClientServerName}"/>
-		<property name="casServerLoginUrl" value="${casServerLoginUrl}"/>
-	</bean>
-	<bean name="casTicketValidationFilter" class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter">
-		<property name="serverName" value="${casClientServerName}"/>
-		<property name="ticketValidator">
-			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
-				<constructor-arg index="0" value="${casServerUrlPrefix}"/>
-			</bean>
-		</property>
-	</bean>
+	
 
 	<!-- 发送邮件 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

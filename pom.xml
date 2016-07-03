@@ -47,12 +47,7 @@
       <type>jar</type>
     </dependency>
 
-		<dependency>
-			<groupId>org.jasig.cas.client</groupId>
-			<artifactId>cas-client-core</artifactId>
-			<version>${cas-client-core.version}</version>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

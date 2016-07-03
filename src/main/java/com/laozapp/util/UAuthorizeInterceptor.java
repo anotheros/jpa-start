@@ -51,7 +51,7 @@ public class UAuthorizeInterceptor implements HandlerInterceptor {
 	private boolean isDologin(String servletPath) {
 		return servletPath.endsWith("/doLogin") || servletPath.indexOf("dologin") > -1 || servletPath.endsWith("index.jsp") || servletPath.startsWith("/index")   || servletPath.startsWith("/login") || servletPath.startsWith("/logout")  || servletPath.startsWith("/check") || servletPath.endsWith("robot.txt")
 				|| servletPath.indexOf("help/test") > -1 || servletPath.indexOf("404.html") > -1 || servletPath.indexOf("500.html") > -1
-				|| servletPath.startsWith("/register") || servletPath.startsWith("/reset") || servletPath.equals("/");
+				|| servletPath.startsWith("/register") || servletPath.startsWith("/reset") || servletPath.equals("/") || servletPath.indexOf("article")>-1;
 	}
 
 	@Override

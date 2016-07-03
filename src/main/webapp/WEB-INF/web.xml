@@ -61,53 +61,6 @@
 		<servlet-name>chat</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-	<!-- SSO -->
-	<listener>
-		<listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
-	</listener>
-	<filter>
-		<filter-name>casSingleSignOutFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>casSingleSignOutFilter</filter-name>
-		<url-pattern>/index</url-pattern>
-	</filter-mapping>
-	<filter>
-		<filter-name>casAuthenticationFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>casAuthenticationFilter</filter-name>
-		<url-pattern>/index</url-pattern>
-	</filter-mapping>
-	<filter>
-		<filter-name>casTicketValidationFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>casTicketValidationFilter</filter-name>
-		<url-pattern>/index</url-pattern>
-	</filter-mapping>
-	<filter>
-		<filter-name>casHttpServletRequestWrapperFilter</filter-name>
-		<filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>casHttpServletRequestWrapperFilter</filter-name>
-		<url-pattern>/index</url-pattern>
-	</filter-mapping>
-	<filter>
-		<filter-name>casAssertionThreadLocalFilter</filter-name>
-		<filter-class>org.jasig.cas.client.util.AssertionThreadLocalFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>casAssertionThreadLocalFilter</filter-name>
-		<url-pattern>/index</url-pattern>
-	</filter-mapping>
-
-
 	  <servlet>
 	    <servlet-name>jcaptcha</servlet-name>
 	    <servlet-class>com.ivan.zhang.servlet.ImageCaptchaServlet</servlet-class>
