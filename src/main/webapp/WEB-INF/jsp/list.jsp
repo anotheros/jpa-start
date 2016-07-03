@@ -13,8 +13,8 @@
 					<SPAN class="left">内容</SPAN>
 							<DIV class="rg"><INPUT name="title" type="text"> <button type="submit">确 定</button></DIV>
 </FORM>
-			
---------------------
+	</br>		
+--------------------</br>
 
 
 删除|ID| 标题</br>
