@@ -24,11 +24,24 @@ public class ArticleController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Article article){
 		articleService.save(article);
-		return "redirect:list";
+		return "redirect:listPath";
 		
 	}
-	@RequestMapping(value = "/list")
+	@RequestMapping(value = "/del", method = RequestMethod.GET)
+	public String save(Long id){
+		articleService.del(id);;
+		return "redirect:listPath";
+		
+	}
+	@RequestMapping(value = "/listPath")
 	public ModelAndView list(){
+		ModelAndView mv =new ModelAndView("list2");
+		Iterable<Article> articles=articleService.getAll();
+		mv.addObject("articles",articles);
+		return mv;
+	}
+	@RequestMapping(value = "/list")
+	public ModelAndView list3333(){
 		ModelAndView mv =new ModelAndView("list");
 		Iterable<Article> articles=articleService.getAll();
 		mv.addObject("articles",articles);

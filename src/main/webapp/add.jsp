@@ -9,7 +9,7 @@
 <body>
 <FORM id="form1" action="<%=contextPath %>/article/save" method="post">
 				
-					<SPAN class="left">名称</SPAN>
+					<SPAN class="left">内容</SPAN>
 							<DIV class="rg"><INPUT name="title" type="text"></DIV>
 						
 					<DIV class="btns" style="padding: 6px;">

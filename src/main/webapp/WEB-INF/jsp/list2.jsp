@@ -7,7 +7,7 @@
 </head>
 <body>
 <c:forEach items="${articles}" var="a">
-					${a.articleId }	 |	${a.title } </br>
+					${a.articleId }	 |	${a.title } |2</br>
 <DIV >---------------------------</DIV>
 </c:forEach>
 </body>
