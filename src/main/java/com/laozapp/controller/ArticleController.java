@@ -24,13 +24,13 @@ public class ArticleController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Article article){
 		articleService.save(article);
-		return "redirect:listPath";
+		return "redirect:list";
 		
 	}
 	@RequestMapping(value = "/del", method = RequestMethod.GET)
 	public String save(Long id){
 		articleService.del(id);;
-		return "redirect:listPath";
+		return "redirect:list";
 		
 	}
 	@RequestMapping(value = "/listPath")
