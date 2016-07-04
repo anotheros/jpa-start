@@ -115,7 +115,7 @@
 		scope="prototype">
 		<property name="patterns">
 			<list>
-				<value>cn.zplay.service.*</value>
+				<value>com.laozapp.service.*</value>
 			</list>
 		</property>
 	</bean>
