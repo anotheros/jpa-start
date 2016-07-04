@@ -30,7 +30,7 @@ public class ArticleController {
 	@RequestMapping(value = "/del", method = RequestMethod.GET)
 	public String save(Long id){
 		articleService.del(id);;
-		return "redirect:list";
+		return "redirect:listPath";
 		
 	}
 	@RequestMapping(value = "/listPath")
