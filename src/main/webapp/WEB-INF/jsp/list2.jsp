@@ -5,9 +5,11 @@
 <head>
 <title>列表页</title>
 </head>
+
+<DIV >---------------------------</DIV>
 <body>
 <c:forEach items="${articles}" var="a">
-					${a.articleId }	 |	${a.title } |2</br>
+					<a href="<%=contextPath %>/article/del?id=${a.articleId }">删除</a>|${a.articleId }	 |	${a.title } |2</br>
 <DIV >---------------------------</DIV>
 </c:forEach>
 </body>
