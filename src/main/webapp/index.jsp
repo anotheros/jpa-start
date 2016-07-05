@@ -10,7 +10,7 @@
 <body>
   <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="1000" height="500" 
   data-setup='{}'>
-    <source src="http://pili-live-hls.vivv.me/laozhangzhibotest/test.m3u8" type="application/x-mpegURL">
+    <source src="rtmp://pili-live-rtmp.vivv.me/laozhangzhibotest/test" type="rtmp/flv">
   </video>
   
   <script>
