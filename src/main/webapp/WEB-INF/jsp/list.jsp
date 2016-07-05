@@ -11,10 +11,12 @@
 
 
 
-删除|ID| 标题</br>
+ID| 标题</br>
 <DIV >---------------------------</DIV>
 <c:forEach items="${articles}" var="a">
-<%-- <a href="<%=contextPath %>/article/del?id=${a.articleId }">删除</a>|${a.articleId }	 | --%>	${a.title } </br>
+
+${a.articleId }	 |	${a.title } </br>
+
 <DIV >---------------------------</DIV>
 </c:forEach>
 

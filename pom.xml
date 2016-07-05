@@ -191,81 +191,34 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
-		<plugins>
-			<!--生成源码JAR包 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>${maven-source-plugin}</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- 清除插件 -->
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>${maven-clean-plugin.version}</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}/src/main/webapp/WEB-INF/lib</directory>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<!-- 让Maven打包时，将jar拷贝一份到webapp/WEB-INF/lib下 -->
+		
+		<finalName>jpa-start</finalName>
+
+<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.1</version>
+				<version>2.3</version>
 				<executions>
 					<execution>
-						<id>copy-dependencies</id>
 						<phase>package</phase>
 						<goals>
-							<goal>copy-dependencies</goal>
+							<goal>copy</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/src/main/webapp/WEB-INF/lib</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.eclipse.jetty</groupId>
+									<artifactId>jetty-runner</artifactId>
+									<version>9.3.3.v20150827</version>
+									<destFileName>jetty-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
-			<!-- 编译源代码 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.plugin.version}</version>
-				<configuration>
-					<source>${source.version}</source>
-					<target>${target.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<verbose>true</verbose>
-					<showWarnings>true</showWarnings>
-					<fork>true</fork>
-				</configuration>
-			</plugin>
-			<!-- 管理资源文件 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
 		</plugins>
-		<finalName>jpa-start</finalName>
-
-
 
 
 	</build>
