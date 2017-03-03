@@ -25,7 +25,7 @@
 		<spring.version>3.2.10.RELEASE</spring.version>
 		<cglib.version>2.2</cglib.version>
 		<aspectjweaver.version>1.7.1</aspectjweaver.version>
-		<druid.version>0.2.26</druid.version>
+		<druid.version>1.0.15</druid.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<jstl.version>1.2</jstl.version>
 		<servlet-api.version>2.5</servlet-api.version>
@@ -189,6 +189,11 @@
 			<artifactId>javax.mail</artifactId>
 			<version>${java.mail-version}</version>
 		</dependency>
+		 <dependency>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>1.4</version>
+	</dependency>
 	</dependencies>
 	<build>
 		
@@ -216,6 +221,20 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<!-- 编译源代码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${source.version}</source>
+					<target>${target.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<verbose>true</verbose>
+					<showWarnings>true</showWarnings>
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
 

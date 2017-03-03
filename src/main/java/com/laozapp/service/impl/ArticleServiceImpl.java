@@ -13,7 +13,6 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired
 	private ArticleDao articleDao;
-	@Override
 	@Transactional
 	public void save(Article article) {
 		articleDao.save(article);

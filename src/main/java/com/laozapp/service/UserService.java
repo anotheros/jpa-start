@@ -28,7 +28,7 @@ public class UserService {
 	}
 
 	public UserEntity getUserByUserName(String userName) {
-		UserEntity ue = this.userDao.getUserByUserName(userName);
+		UserEntity ue = this.userDao.findByUserName(userName);
 		return ue;
 	}
 
