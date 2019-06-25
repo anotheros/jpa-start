@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/zhangshanhai/jpa-start.svg)](https://travis-ci.org/zhangshanhai/jpa-start)
+[![Build Status](https://travis-ci.org/anotheros/jpa-start.svg)](https://travis-ci.org/zhangshanhai/jpa-start)
 jpa
 **使用spring，springmvc，jpa ,maven**
 
