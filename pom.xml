@@ -21,7 +21,7 @@
 		<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
 
 		<fastjson.version>1.1.41</fastjson.version>
-		<hibernate.version>4.2.1.Final</hibernate.version>
+		<hibernate.version>5.3.20.Final</hibernate.version>
 		<spring.version>3.2.10.RELEASE</spring.version>
 		<cglib.version>2.2</cglib.version>
 		<aspectjweaver.version>1.7.1</aspectjweaver.version>
