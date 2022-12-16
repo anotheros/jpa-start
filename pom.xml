@@ -22,7 +22,7 @@
 
 		<fastjson.version>1.1.41</fastjson.version>
 		<hibernate.version>4.2.1.Final</hibernate.version>
-		<spring.version>3.2.10.RELEASE</spring.version>
+		<spring.version>5.2.20.RELEASE</spring.version>
 		<cglib.version>2.2</cglib.version>
 		<aspectjweaver.version>1.7.1</aspectjweaver.version>
 		<druid.version>1.0.15</druid.version>
